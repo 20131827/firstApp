@@ -1,10 +1,8 @@
 import { MongoClient, Db } from 'mongodb';
 
-if (!process.env.MONGODB_URI) {
-  throw new Error('Please add your Mongo URI to .env.local');
-}
+// 환경 변수가 없을 때는 빌드 시점에서 오류를 발생시키지 않도록 수정
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/easywedding';
 
-const uri = process.env.MONGODB_URI;
 const options = {};
 
 let client: MongoClient;
