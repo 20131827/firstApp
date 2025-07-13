@@ -28,6 +28,8 @@ export interface WeddingInvitation {
   updatedAt: Date;
 }
 
+export type ThemeType = 'simple' | 'traditional' | 'modern';
+
 export interface Template {
   id: string;
   name: string;

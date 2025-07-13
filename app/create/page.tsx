@@ -307,7 +307,7 @@ export default function CreatePage() {
                     className={`card-hover cursor-pointer p-4 text-center ${
                       watchedValues.theme === key ? 'ring-2 ring-primary-500' : ''
                     }`}
-                    onClick={() => setValue('theme', key as any)}
+                    onClick={() => setValue('theme', key as 'simple' | 'traditional' | 'modern')}
                   >
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
                       <HeartIcon className="h-6 w-6 text-primary-600" />

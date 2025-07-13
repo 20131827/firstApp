@@ -34,7 +34,7 @@ const mockInvitation = {
     'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=300&fit=crop',
   ],
-  theme: 'simple' as const,
+  theme: 'simple' as 'simple' | 'traditional' | 'modern',
   isActive: true,
   expiresAt: '2024-07-15',
   createdAt: '2024-01-01',
@@ -97,7 +97,9 @@ export default function InvitationPage() {
   };
 
   const renderThemeStyles = () => {
-    switch (invitation.theme) {
+    const theme = invitation.theme as 'simple' | 'traditional' | 'modern';
+    
+    switch (theme) {
       case 'traditional':
         return {
           background: 'bg-gradient-to-br from-amber-50 to-orange-100',

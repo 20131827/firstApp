@@ -73,7 +73,7 @@ export default function TemplatesPage() {
                 className={`card-hover cursor-pointer transition-all duration-300 ${
                   selectedTheme === key ? 'ring-2 ring-primary-500' : ''
                 }`}
-                onClick={() => setSelectedTheme(key as any)}
+                onClick={() => setSelectedTheme(key as 'simple' | 'traditional' | 'modern')}
               >
                 <div className="aspect-[4/5] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-4 flex items-center justify-center relative">
                   <div className="text-center">

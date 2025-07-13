@@ -19,6 +19,8 @@ export const THEMES = {
   },
 } as const;
 
+export type ThemeKey = keyof typeof THEMES;
+
 export const MESSAGE_TEMPLATES = [
   {
     id: 'template-1',

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { MAX_PHOTOS, MAX_PHOTO_SIZE, ALLOWED_PHOTO_TYPES } from './constants';
+import { MAX_PHOTOS, MAX_PHOTO_SIZE, ALLOWED_PHOTO_TYPES, ThemeKey } from './constants';
 
 export const createInvitationSchema = z.object({
   groomName: z.string().min(1, '신랑 이름을 입력해주세요').max(50, '이름은 50자 이하여야 합니다'),
@@ -11,7 +11,7 @@ export const createInvitationSchema = z.object({
   venueMapLink: z.string().url('올바른 URL을 입력해주세요').optional().or(z.literal('')),
   contactInfo: z.string().max(100, '연락처는 100자 이하여야 합니다').optional().or(z.literal('')),
   message: z.string().min(10, '메시지는 최소 10자 이상이어야 합니다').max(500, '메시지는 500자 이하여야 합니다'),
-  theme: z.enum(['simple', 'traditional', 'modern'], {
+  theme: z.enum(['simple', 'traditional', 'modern'] as const, {
     required_error: '테마를 선택해주세요',
   }),
   userEmail: z.string().email('올바른 이메일 주소를 입력해주세요'),
